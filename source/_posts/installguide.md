@@ -1,3 +1,9 @@
+---
+title: install guide(WIP)
+date: 2026-06-13 19:00:00
+tags: guide WIP
+---
+
 # **install guide**
 
 welcome! o7 this install guide tells you how to install marlinux 

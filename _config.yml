@@ -105,3 +105,60 @@ deploy:
   repo: git@github.com:4444ji/4444ji-blogwang.git
   branch: gh-pages
   message: "更新博客"
+
+theme_config:
+  scheme: Gemini
+  darkmode: true
+  # 侧边栏配置
+  sidebar:
+    position: left
+    width: 320
+    padding: 18
+    offset: 12
+
+  # 头像（把图片放 source/images/avatar.jpg）
+  avatar:
+    url: /images/avatar.jpg
+    rounded: true
+
+  # 代码高亮主题
+  highlight_theme: night eighties
+
+  # 字体
+  font:
+    enable: true
+    global:
+      size: 1
+      family: ["PingFang SC", "Microsoft YaHei", "Helvetica Neue", sans-serif]
+
+  # 阅读进度条
+  reading_progress:
+    enable: true
+    color: "#49b1f5"
+
+  # 回到顶部
+  back2top:
+    enable: true
+    scrollpercent: true
+
+  # 书签功能
+  bookmark:
+    enable: true
+
+  # 版权声明
+  creative_commons:
+    license: by-nc-sa
+    post: true
+
+  # 社交链接
+  social:
+    GitHub: https://github.com/4444ji || fab fa-github
+
+  # 页脚
+  footer:
+    since: 2026
+    icon:
+      animated: true
+
+  # 首页显示"阅读更多"按钮
+  read_more_btn: true
