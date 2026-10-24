@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 8.1.2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=PingFang SC,Microsoft YaHei,Helvetica Neue,sans-serif:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"301203.xyz","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false,"width":320},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="⚠️ 【免责声明】  本博客及 PCL_Aris 项目为纯粹的个人开源技术实践，非 PCL 官方发布。本人（Aris_Summer）与成都瓜皮龙科技有限公司及龙腾猫跃无任何隶属或利益关联。  PCL_Aris 基于 PCL 2.14.0.0 的公开开源代码修改而来。本项目严格遵循《PCL 存储库合理使用指南》，不提供、不内置、不传播任何未经审批的 Minecraft 游戏本体。所保留的下载功能，仅">
+<meta property="og:type" content="article">
+<meta property="og:title" content="见字如面：写在 PCL 2.99 更新之后">
+<meta property="og:url" content="http://301203.xyz/2026/10/25/%E8%A7%81%E5%AD%97%E5%A6%82%E9%9D%A2/index.html">
+<meta property="og:site_name" content="夏的博客">
+<meta property="og:description" content="⚠️ 【免责声明】  本博客及 PCL_Aris 项目为纯粹的个人开源技术实践，非 PCL 官方发布。本人（Aris_Summer）与成都瓜皮龙科技有限公司及龙腾猫跃无任何隶属或利益关联。  PCL_Aris 基于 PCL 2.14.0.0 的公开开源代码修改而来。本项目严格遵循《PCL 存储库合理使用指南》，不提供、不内置、不传播任何未经审批的 Minecraft 游戏本体。所保留的下载功能，仅">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://301203.xyz/file.jpg">
+<meta property="article:published_time" content="2026-10-24T19:30:00.000Z">
+<meta property="article:modified_time" content="2026-10-24T19:03:36.644Z">
+<meta property="article:author" content="XIA">
+<meta property="article:tag" content="PCL">
+<meta property="article:tag" content="开源">
+<meta property="article:tag" content="我的世界">
+<meta property="article:tag" content="随笔">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://301203.xyz/file.jpg">
+
+<link rel="canonical" href="http://301203.xyz/2026/10/25/%E8%A7%81%E5%AD%97%E5%A6%82%E9%9D%A2/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>见字如面：写在 PCL 2.99 更新之后 | 夏的博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">夏的博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">xia's blog</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://301203.xyz/2026/10/25/%E8%A7%81%E5%AD%97%E5%A6%82%E9%9D%A2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="XIA">
+      <meta itemprop="description" content="可能会有点技术之类的?">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="夏的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          见字如面：写在 PCL 2.99 更新之后
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2026-10-25 03:30:00 / 修改时间：03:03:36" itemprop="dateCreated datePublished" datetime="2026-10-25T03:30:00+08:00">2026-10-25</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>⚠️ <strong>【免责声明】</strong></p>
+<ol>
+<li><p>本博客及 PCL_Aris 项目为纯粹的个人开源技术实践，<strong>非 PCL 官方发布</strong>。本人（Aris_Summer）与成都瓜皮龙科技有限公司及龙腾猫跃无任何隶属或利益关联。</p>
+</li>
+<li><p><code>PCL_Aris</code> 基于 PCL 2.14.0.0 的公开开源代码修改而来。本项目严格遵循《PCL 存储库合理使用指南》，<strong>不提供、不内置、不传播任何未经审批的 Minecraft 游戏本体</strong>。所保留的下载功能，仅为调用 Mojang 官方公开 API 的启动器工具行为。请玩家在游玩国际版时，自行遵守当地法律法规，或支持网易国服正版。</p>
+</li>
+<li><p>本项目<strong>完全免费开源</strong>，不包含任何破解赞助、隐藏收费、后门或恶意代码（代码全在 GitHub 公开，可自行审计&#x2F;编译）。</p>
+</li>
+<li><p>任何因使用本修改版导致的游戏崩溃、数据丢失、账号封禁或法律纠纷，<strong>均由使用者自行承担，本人概不负责</strong>。</p>
+</li>
+<li><p>如果您所在的环境（如特定网络、平台）无法访问 GitHub 获取源码与说明，请勿使用本软件。<strong>技术无罪，请理性对待开源项目，停止网络暴力与恶意攻击。</strong></p>
+</li>
+</ol>
+<p>各位好，我是 PCL_Aris 修改版的维护者 Aris_Summer。</p>
+<p>今日凌晨（2026&#x2F;10&#x2F;25 00:58），龙腾猫跃（龙猫）正式提交了名为 <code>2.99.0.1</code> 的更新。但我下载后发现，2.99.0.1 出现了如下的更新日志：<br><img src="/file.jpg" alt="PCL2.99.0.1更新日志"><br>随后我去 GitHub 一看，发现龙猫的账号目前已经处于封禁状态（且由于账号受限，commit 显示为 Unverified 不被信任）。</p>
+<p>人们常说，开源是最好的。但是当你真的把心血开源了过后，换来的却是 DDoS 攻击和恶意举报？这不免让人觉得……难说。</p>
+<p>我也知道龙猫在这条路上已经走了很久，承受了太多本不该承受的压力，此时他确实该休息了，希望 PCL 未来能变得更好吧。</p>
+<p>我们的 <strong>PCL_Aris</strong> 是基于 PCL <strong>2.14.0.0</strong> 修改的。虽然我知道在这种地方写这些显得有点感性，可大家不都是因为这个游戏（MC）才聚在一起的吗？PCL 只是站在巨人的肩膀上，做了一些大家希望它能做的事情。</p>
+<p>虽然我说这么多，可能也改变不了什么，事情已经发生了。</p>
+<p>龙猫，<strong>辛苦了。</strong></p>
+<p>PCL <strong>加油。</strong></p>
+<details>
+  <summary>我的 PGP 公钥（用于校验本文未被篡改）</summary>
+  <br>
+
+<pre><code class="language-text">-----BEGIN PGP PUBLIC KEY BLOCK-----
+
+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
+nUZ03gKQdfmu
+=hsQ7
+-----END PGP PUBLIC KEY BLOCK-----
+&lt;/details&gt; ```
+</code></pre>
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>XIA
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://301203.xyz/2026/10/25/%E8%A7%81%E5%AD%97%E5%A6%82%E9%9D%A2/" title="见字如面：写在 PCL 2.99 更新之后">http://301203.xyz/2026/10/25/见字如面/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/PCL/" rel="tag"># PCL</a>
+              <a href="/tags/%E5%BC%80%E6%BA%90/" rel="tag"># 开源</a>
+              <a href="/tags/%E9%9A%8F%E7%AC%94/" rel="tag"># 随笔</a>
+              <a href="/tags/%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8C/" rel="tag"># 我的世界</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2026/06/13/installguide/" rel="prev" title="install guide(WIP)">
+      <i class="fa fa-chevron-left"></i> install guide(WIP)
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="XIA"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">XIA</p>
+  <div class="site-description" itemprop="description">可能会有点技术之类的?</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/4444ji" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;4444ji" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2026</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">XIA</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
